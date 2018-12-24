@@ -1,0 +1,56 @@
+2018-11-13 10:36:26.328 baas  INFO 12768 --- [main] c.e.s.SpringbootDemoApplication          : Starting SpringbootDemoApplication on LAPTOP-UGA3F2DD with PID 12768 (C:\Users\workspacegit\springboot-demo\target\classes started by 16030 in C:\Users\workspacegit\springboot-demo)
+2018-11-13 10:36:26.333 baas  INFO 12768 --- [main] c.e.s.SpringbootDemoApplication          : No active profile set, falling back to default profiles: default
+2018-11-13 10:36:27.399 baas  INFO 12768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-13 10:36:27.429 baas  INFO 12768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 repository interfaces.
+2018-11-13 10:36:28.029 baas  INFO 12768 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a4596aa0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-13 10:36:28.731 baas  INFO 12768 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-13 10:36:28.758 baas  INFO 12768 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-13 10:36:28.758 baas  INFO 12768 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-13 10:36:28.770 baas  INFO 12768 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_191\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;%M2_HOME%\bin;C:\Users\workSoftware\mysql\mysql-5.7.24-winx64\bin;C:\Users\16030\AppData\Local\Microsoft\WindowsApps;;.]
+2018-11-13 10:36:28.977 baas  INFO 12768 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-13 10:36:28.978 baas  INFO 12768 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2566 ms
+2018-11-13 10:36:29.023 baas  INFO 12768 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-13 10:36:29.030 baas  INFO 12768 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-13 10:36:29.031 baas  INFO 12768 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-13 10:36:29.031 baas  INFO 12768 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-13 10:36:29.031 baas  INFO 12768 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-13 10:36:29.079 baas  WARN 12768 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2018-11-13 10:36:29.083 baas  INFO 12768 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2018-11-13 10:36:29.171 baas  INFO 12768 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-11-13 10:36:29.174 baas ERROR 12768 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2018-11-13 10:37:07.241 baas  INFO 20920 --- [main] c.e.s.SpringbootDemoApplication          : Starting SpringbootDemoApplication on LAPTOP-UGA3F2DD with PID 20920 (C:\Users\workspacegit\springboot-demo\target\classes started by 16030 in C:\Users\workspacegit\springboot-demo)
+2018-11-13 10:37:07.247 baas  INFO 20920 --- [main] c.e.s.SpringbootDemoApplication          : No active profile set, falling back to default profiles: default
+2018-11-13 10:37:08.961 baas  INFO 20920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-13 10:37:08.992 baas  INFO 20920 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-13 10:37:08.992 baas  INFO 20920 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-13 10:37:09.008 baas  INFO 20920 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_191\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;%M2_HOME%\bin;C:\Users\workSoftware\mysql\mysql-5.7.24-winx64\bin;C:\Users\16030\AppData\Local\Microsoft\WindowsApps;;.]
+2018-11-13 10:37:09.208 baas  INFO 20920 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-13 10:37:09.208 baas  INFO 20920 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1824 ms
+2018-11-13 10:37:09.243 baas  INFO 20920 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-13 10:37:09.249 baas  INFO 20920 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-13 10:37:09.249 baas  INFO 20920 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-13 10:37:09.250 baas  INFO 20920 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-13 10:37:09.250 baas  INFO 20920 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-13 10:37:09.508 baas  INFO 20920 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-13 10:37:09.851 baas  INFO 20920 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-13 10:37:09.854 baas  INFO 20920 --- [main] c.e.s.SpringbootDemoApplication          : Started SpringbootDemoApplication in 3.423 seconds (JVM running for 4.237)
