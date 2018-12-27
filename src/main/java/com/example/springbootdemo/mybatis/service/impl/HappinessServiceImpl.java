@@ -30,4 +30,31 @@ public class HappinessServiceImpl implements HappinessService {
         System.out.println("num:" + num);
         log.info("findHappinessByCity end-------");
     }
+
+    @Override
+    public int insertHappiness(String city, Integer num) {
+        log.info("insertHappiness start-------");
+        int i = happinessDao.insertHappiness(city, num);
+        System.out.println("insert:" + i);
+        log.info("insertHappiness end-------");
+        return i;
+    }
+
+    @Override
+    public int updateByCity(String city, Long id) {
+        log.info("updateByCity start-------");
+        int i = happinessDao.updateByCity(city, id);
+        System.out.println("update:" + i);
+        log.info("updateByCity end-------");
+        return i;
+    }
+
+    @Override
+    public int deleteByCity(String city) {
+        log.info("deleteByCity start-------");
+        int i = happinessDao.deleteByCity(city);
+        System.out.println("delete:" + i);
+        log.info("deleteByCity end-------");
+        return i;
+    }
 }

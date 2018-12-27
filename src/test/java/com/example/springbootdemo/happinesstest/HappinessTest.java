@@ -18,8 +18,23 @@ public class HappinessTest extends SpringbootDemoApplicationTests {
     private HappinessService happinessService;
 
     @Test
-    public void contextLoads() {
+    public void findHappinessByCity() {
         happinessService.findHappinessByCity("上海");
+    }
+
+    @Test
+    public void insertHappiness() {
+        happinessService.insertHappiness("北京", 1);
+    }
+
+    @Test
+    public void updateByCity() {
+        happinessService.updateByCity("南京", 1l);
+    }
+
+    @Test
+    public void deleteByCity() {
+        happinessService.deleteByCity("北京");
     }
 
 }

@@ -9,5 +9,15 @@ package com.example.springbootdemo.mybatis.service;
  */
 public interface HappinessService {
 
+    //查询
     void findHappinessByCity(String city);
+
+    //插入
+    int insertHappiness(String city, Integer num);
+
+    //更新
+    int updateByCity(String city, Long id);
+
+    //删除
+    int deleteByCity(String city);
 }
