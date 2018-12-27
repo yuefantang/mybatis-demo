@@ -2,10 +2,13 @@ package com.example.springbootdemo.mybatis.service.impl;
 
 import com.example.springbootdemo.mybatis.dao.HappinessDao;
 import com.example.springbootdemo.mybatis.domain.Happiness;
+import com.example.springbootdemo.mybatis.mapper.HappinessMapper;
 import com.example.springbootdemo.mybatis.service.HappinessService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Service实现类
@@ -19,6 +22,8 @@ import org.springframework.stereotype.Service;
 public class HappinessServiceImpl implements HappinessService {
     @Autowired
     private HappinessDao happinessDao;
+    @Autowired
+    private HappinessMapper happinessMapper;
 
     @Override
     public void findHappinessByCity(String city) {
@@ -56,5 +61,16 @@ public class HappinessServiceImpl implements HappinessService {
         System.out.println("delete:" + i);
         log.info("deleteByCity end-------");
         return i;
+    }
+
+    @Override
+    public void findHappinessByCityXml(String city) {
+        log.info("findHappinessByCityXml start-------");
+        List<Happiness> happinessByCity = happinessMapper.findHappinessByCityXml(city);
+        happinessByCity.forEach(happiness -> {
+            System.out.println("cityName:" + happiness.getCity());
+            System.out.println("num:" + happiness.getNum());
+        });
+        log.info("findHappinessByCityXml end-------");
     }
 }

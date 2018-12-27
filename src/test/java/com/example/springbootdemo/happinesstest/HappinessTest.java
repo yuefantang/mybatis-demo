@@ -37,4 +37,9 @@ public class HappinessTest extends SpringbootDemoApplicationTests {
         happinessService.deleteByCity("北京");
     }
 
+    @Test
+    public void findHappinessByCityXml() {
+        happinessService.findHappinessByCityXml("南京");
+    }
+
 }

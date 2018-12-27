@@ -20,4 +20,7 @@ public interface HappinessService {
 
     //删除
     int deleteByCity(String city);
+
+    //xml查询
+    void findHappinessByCityXml(String city);
 }
