@@ -1,7 +1,9 @@
 package com.example.springbootdemo.mybatis.dao;
 
+import com.example.springbootdemo.mybatis.common.HappinessDeleteProvider;
 import com.example.springbootdemo.mybatis.domain.Happiness;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.DeleteProvider;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -33,6 +35,7 @@ public interface HappinessDao {
     @Update("update happiness set city=#{city} where id=#{id}")
     int updateByCity(@Param("city") String city, @Param("id") Long id);
 
-    @Delete("delete from happiness where city=#{city}")
+    @DeleteProvider(type = HappinessDeleteProvider.class, method = "deleteByCity")
+   // @Delete("delete from happiness where city=#{city}")
     int deleteByCity(@Param("city") String city);
 }
