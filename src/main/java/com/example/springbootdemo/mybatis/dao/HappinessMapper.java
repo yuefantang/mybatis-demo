@@ -2,7 +2,6 @@ package com.example.springbootdemo.mybatis.dao;
 
 import com.example.springbootdemo.mybatis.common.HappinessDeleteProvider;
 import com.example.springbootdemo.mybatis.domain.Happiness;
-import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.DeleteProvider;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -12,15 +11,23 @@ import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-/**
- * 查询表的dao
- *
- * @author TYF
- * @date 2018/12/24
- * @since 1.0.0
- */
+import java.util.List;
+
 @Mapper
-public interface HappinessDao {
+public interface HappinessMapper {
+    int deleteByPrimaryKey(Long id);
+
+    int insert(Happiness record);
+
+    int insertSelective(Happiness record);
+
+    Happiness selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(Happiness record);
+
+    int updateByPrimaryKey(Happiness record);
+
+    List<Happiness> findHappinessByCityXml(@Param("city") String city);
 
     @Results({
             @Result(property = "id", column = "id", id = true),
@@ -36,6 +43,6 @@ public interface HappinessDao {
     int updateByCity(@Param("city") String city, @Param("id") Long id);
 
     @DeleteProvider(type = HappinessDeleteProvider.class, method = "deleteByCity")
-   // @Delete("delete from happiness where city=#{city}")
+        // @Delete("delete from happiness where city=#{city}")
     int deleteByCity(@Param("city") String city);
 }

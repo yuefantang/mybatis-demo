@@ -1,8 +1,9 @@
 package com.example.springbootdemo.mybatis.service.impl;
 
-import com.example.springbootdemo.mybatis.dao.HappinessDao;
+import com.example.springbootdemo.mybatis.dao.HappinessMapper;
+import com.example.springbootdemo.mybatis.dao.UserMapper;
 import com.example.springbootdemo.mybatis.domain.Happiness;
-import com.example.springbootdemo.mybatis.mapper.HappinessMapper;
+import com.example.springbootdemo.mybatis.domain.User;
 import com.example.springbootdemo.mybatis.service.HappinessService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +22,14 @@ import java.util.List;
 @Slf4j
 public class HappinessServiceImpl implements HappinessService {
     @Autowired
-    private HappinessDao happinessDao;
-    @Autowired
     private HappinessMapper happinessMapper;
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
     public void findHappinessByCity(String city) {
         log.info("findHappinessByCity start-------");
-        Happiness happiness = happinessDao.findHappinessByCity(city);
+        Happiness happiness = happinessMapper.findHappinessByCity(city);
         String city1 = happiness.getCity();
         Integer num = happiness.getNum();
         System.out.println("cityName:" + city1);
@@ -39,7 +40,7 @@ public class HappinessServiceImpl implements HappinessService {
     @Override
     public int insertHappiness(String city, Integer num) {
         log.info("insertHappiness start-------");
-        int i = happinessDao.insertHappiness(city, num);
+        int i = happinessMapper.insertHappiness(city, num);
         System.out.println("insert:" + i);
         log.info("insertHappiness end-------");
         return i;
@@ -48,7 +49,7 @@ public class HappinessServiceImpl implements HappinessService {
     @Override
     public int updateByCity(String city, Long id) {
         log.info("updateByCity start-------");
-        int i = happinessDao.updateByCity(city, id);
+        int i = happinessMapper.updateByCity(city, id);
         System.out.println("update:" + i);
         log.info("updateByCity end-------");
         return i;
@@ -57,7 +58,7 @@ public class HappinessServiceImpl implements HappinessService {
     @Override
     public int deleteByCity(String city) {
         log.info("deleteByCity start-------");
-        int i = happinessDao.deleteByCity(city);
+        int i = happinessMapper.deleteByCity(city);
         System.out.println("delete:" + i);
         log.info("deleteByCity end-------");
         return i;
@@ -72,5 +73,14 @@ public class HappinessServiceImpl implements HappinessService {
             System.out.println("num:" + happiness.getNum());
         });
         log.info("findHappinessByCityXml end-------");
+    }
+
+    @Override
+    public void selectByPrimaryKey(Long id) {
+        log.info("selectByPrimaryKey start-------");
+        User user = userMapper.selectByPrimaryKey(id);
+        System.out.println("cityName:" + user.getUserName());
+        System.out.println("num:" + user.getId());
+        log.info("selectByPrimaryKey end-------");
     }
 }

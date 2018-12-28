@@ -1,20 +1,86 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.springbootdemo.mybatis.mapper.HappinessMapper">
-    <select id="findHappinessByCityXml" resultType="com.example.springbootdemo.mybatis.domain.Happiness">
-        select * from happiness
-        <where>
-            <if test="city !=null and city !=''">
-                and city=#{city}
-            </if>
-            <choose>
-                <when test="city !=null and city !=''">
-                    and num=1
-                </when>
-                <otherwise>
-                    and num=11
-                </otherwise>
-            </choose>
-        </where>
-    </select>
+<mapper namespace="com.example.springbootdemo.mybatis.dao.HappinessMapper" >
+  <resultMap id="BaseResultMap" type="com.example.springbootdemo.mybatis.domain.Happiness" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, city, num
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from happiness
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from happiness
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.example.springbootdemo.mybatis.domain.Happiness" >
+    insert into happiness (id, city, num)
+    values (#{id,jdbcType=BIGINT}, #{city,jdbcType=VARCHAR}, #{num,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.springbootdemo.mybatis.domain.Happiness" >
+    insert into happiness
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.springbootdemo.mybatis.domain.Happiness" >
+    update happiness
+    <set >
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.springbootdemo.mybatis.domain.Happiness" >
+    update happiness
+    set city = #{city,jdbcType=VARCHAR},
+      num = #{num,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="findHappinessByCityXml" resultType="com.example.springbootdemo.mybatis.domain.Happiness">
+    select * from happiness
+    <where>
+      <if test="city !=null and city !=''">
+        and city=#{city}
+      </if>
+      <choose>
+        <when test="city !=null and city !=''">
+          and num=1
+        </when>
+        <otherwise>
+          and num=11
+        </otherwise>
+      </choose>
+    </where>
+  </select>
 </mapper>

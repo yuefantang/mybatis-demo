@@ -19,7 +19,7 @@ public class HappinessTest extends SpringbootDemoApplicationTests {
 
     @Test
     public void findHappinessByCity() {
-        happinessService.findHappinessByCity("上海");
+   happinessService.findHappinessByCity("北京");
     }
 
     @Test
@@ -29,17 +29,21 @@ public class HappinessTest extends SpringbootDemoApplicationTests {
 
     @Test
     public void updateByCity() {
-        happinessService.updateByCity("南京", 1l);
+      happinessService.updateByCity("南京", 1l);
     }
 
     @Test
     public void deleteByCity() {
-        happinessService.deleteByCity("北京");
+       happinessService.deleteByCity("北京");
     }
 
     @Test
     public void findHappinessByCityXml() {
-        happinessService.findHappinessByCityXml("");
+      happinessService.findHappinessByCityXml("南京");
     }
 
+    @Test
+    public void selectByPrimaryKey() {
+        happinessService.selectByPrimaryKey(1l);
+    }
 }

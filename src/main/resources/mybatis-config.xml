@@ -7,5 +7,6 @@
 
     <mappers>
         <mapper resource="mapper/HappinessMapper.xml"/>
+        <mapper resource="mapper/userMapper.xml"/>
     </mappers>
 </configuration>

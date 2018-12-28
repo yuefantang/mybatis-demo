@@ -23,4 +23,10 @@ public interface HappinessService {
 
     //xml查询
     void findHappinessByCityXml(String city);
+
+    //用generator自动生成的类查询
+    void selectByPrimaryKey(Long id);
+
+
+
 }
