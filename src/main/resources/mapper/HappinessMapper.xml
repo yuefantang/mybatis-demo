@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.springbootdemo.mybatis.mapper.HappinessMapper">
-<select id="findHappinessByCityXml" resultType="com.example.springbootdemo.mybatis.domain.Happiness">
-    select * from happiness where city=#{city}
-</select>
+    <select id="findHappinessByCityXml" resultType="com.example.springbootdemo.mybatis.domain.Happiness">
+        select * from happiness
+        <where>
+            <if test="city !=null and city !=''">
+                and city=#{city}
+            </if>
+            <choose>
+                <when test="city !=null and city !=''">
+                    and num=1
+                </when>
+                <otherwise>
+                    and num=11
+                </otherwise>
+            </choose>
+        </where>
+    </select>
 </mapper>
