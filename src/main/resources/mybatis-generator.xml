@@ -33,8 +33,9 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.springbootdemo.mybatis.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
-        <!--生成对应表及类名-->
-        <table tableName="t_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
-        <table tableName="happiness" domainObjectName="Happiness" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <!--生成对应表及类名，如果新增表，需要将下面之前表注释掉，否则编译时会将对应的实体类和xml文件覆盖掉-->
+        <table tableName="t_role" domainObjectName="Role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <!--<table tableName="t_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+        <!--<table tableName="happiness" domainObjectName="Happiness" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
     </context>
 </generatorConfiguration>
